@@ -1,7 +1,7 @@
 import { ec_level, svgObject } from "qr-image-color";
 import { LabelDefinition, LotOptions, TagGeneratorConfig } from "../tagDefs";
 import { isStandardFont, Rect } from "./pdf-utils";
-import {mm2pt, propNameList, toRGB} from './utils';
+import {isNode, mm2pt, propNameList, toRGB} from './utils';
 
 export interface SvgFontProperties {
   family: string;
@@ -167,6 +167,8 @@ export interface SvgFontProperties {
         }
 
         public addFontToDOM = async (fontName:string, buffer?: ArrayBuffer ) => {
+          
+          if (isNode()) return;
           
           let font = this.domFonts.get(fontName);
           

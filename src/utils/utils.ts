@@ -1,4 +1,8 @@
 
+  export function isNode(){
+    return typeof window === 'undefined';
+  }
+
   export function mm2pt(x:number):number {
     return x * 2.834645669291339;
   }
